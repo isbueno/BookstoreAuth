@@ -1,0 +1,35 @@
+<%- include('partials/head')%>
+
+    <%- include('partials/navbar')%>
+   
+    <div class="container">
+   
+        <h1>Livros</h1>
+
+        <div class="row">
+
+            <!-- Exibindo 3 livros por linha -->
+
+            <% for (let i = 0; i < livros.length; i++) { %>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/images/noimage.png">
+                        <div class="card-body">
+                            <h4 class="card-title"><%= livros[i].titulo %></h4>
+                            <p class="card-subtitle mb-2 text-muted">Autor: <%= livros[i].autor %></p>
+                            <h3 class="text-success">R$ <%= livros[i].preco %></h3>
+                            <br>
+                            <a href="/livros/<%= livros[i].id %>" class="btn btn-primary btn-block">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verificando as 3 colunas -->
+                <% if ((i + 1) % 3 === 0 || (i + 1) === livros.length) { %>
+                    </div>
+                    <div class="row">
+                <% } %>
+            <% } %>
+        </div>
+        
+    </div>

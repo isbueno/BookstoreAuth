@@ -1,0 +1,49 @@
+<%- include('partials/head')%>
+
+    <%- include('partials/navbar')%>
+    
+    
+    <div class="container" >
+
+        <h1>Cadastrar livro</h1>
+    
+        <form method="POST" action="/cadastrar">
+            
+            <div class="row">
+                <div class="col-10 form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="">
+                </div>
+                <div class="col-2 form-group">
+                    <label for="preco">Preço</label>
+                    <input type="text" class="form-control" id="preco" name="preco" placeholder="">
+                </div>    
+            </div>
+            <div class="row">
+                <div class="col-8 form-group">
+                    <label for="autor">Autor</label>
+                    <input type="text" class="form-control" id="autor" name="autor" placeholder="">
+                </div>
+                <div class="col-4 form-group">
+                    <label for="sku">SKU do produto</label>
+                    <input type="text" class="form-control" id="sku" name="sku" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5 form-group">
+                    <label for="genero">Gênero</label>
+                    <input type="text" class="form-control" id="genero" name="genero" placeholder="">
+                </div>
+                <div class="col-5 form-group">
+                    <label for="editora">Editora</label>
+                    <input type="text" class="form-control" id="editora" name="editora" placeholder="">
+                </div>
+                <div class="col-2 form-group">
+                    <label for="quant_paginas">Número de Páginas</label>
+                    <input type="number" class="form-control" id="quant_paginas" name="quant_paginas" placeholder="">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>

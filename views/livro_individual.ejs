@@ -1,0 +1,62 @@
+<%- include('partials/head')%>
+
+    <%- include('partials/navbar')%>
+
+       
+    <div class="container d-flex">
+        <div class="col-5 mr-5">
+            <img src="/images/noimage.png" height="400px" width="100%">            
+        </div>
+        <div class="col-6 align-items-baseline p-0" height="500px">
+            <div class="row d-flex align-items-baseline d-inline-flex pt-5">
+            </div>
+            <h2><%=livro.titulo %></h2>
+            <p class="pl-3">id: <%=livro.id %> | sku: <%=livro.sku %></p>
+
+            <p class="text-muted">Autor: <%=livro.autor %></p>
+            <h3 class="text-success">R$ <%=livro.preco %></h3>
+    
+
+            <div class="row justify-content-start pt-5">
+                <div class="pr-5">
+                    <img class="mx-auto d-block" src="/images/icon-genero.png" height="30px" width="30px">
+                    <p><%=livro.genero %></p>
+                </div>
+                <div class="pr-5">
+                    <img class="mx-auto d-block" src="/images/icon-editora.png" height="30px" width="30px">
+                    <p><%=livro.editora %></p>
+                </div>
+                <div class="pr-5">
+                    <img class="mx-auto d-block" src="/images/icon-paginas.png" height="30px" width="30px">
+                    <p><%=livro.quant_paginas %> páginas</p>
+                </div>
+            </div>
+    
+            <div class="m-0 p-0">
+                <!-- Botão que leva até a rota de edição para realizar o PUT -->
+                <a href="/livros/<%= livro.id %>/editar"><button class="btn btn-primary col-3" id="">Editar</button></a>
+                <!-- Botão que aciona a rota DELETE -->
+                <button class="btn btn-danger col-3" id="deleteButton">Deletar</button>
+            </div>            
+        </div>
+        
+        <script>
+            // Script para verificar a deleção do livro e redirecionar para a ação do método DELETE
+            const deleteButton = document.getElementById('deleteButton');
+            deleteButton.addEventListener('click', () => {
+                const confirmDelete = confirm('Você está excluíndo o livro: \n<%=livro.titulo%>');
+
+                if (confirmDelete) {
+                    fetch('/livros/<%=livro.id%>', {
+                        method: 'DELETE'
+                    })
+                    .then(response => {
+                        window.location.href = '/livros';
+                    })
+                    .catch(error => {
+                        console.error('Erro ao excluir o livro: ', error);
+                    });
+                }
+            });
+        </script>
+    </div>
