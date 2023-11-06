@@ -1,10 +1,9 @@
+const express  = require('express');
 const router = express.Router()
 
 
 // Importando as configurações do banco de dados
-const { sequelize, Livro } = require('./book.model')
-
-
+const { sequelize, Livro } = require('../models')
 
 
 // Apresentar todos os livros
@@ -81,7 +80,7 @@ router.delete('/livros/:id', (req, res) => {
 
 
 const methodOverride = require('method-override');
-app.use(methodOverride('_method'));
+router.use(methodOverride('_method'));
 
 
 // Atualizar informações do livro

@@ -1,0 +1,46 @@
+<%- include('partials/head')%>
+
+    <%- include('partials/navbar')%>
+
+       
+    <div class="container d-flex">
+        <img src="/images/noimage.png" height="400px" width="100%">            
+
+        <div class="col-6 align-items-baseline p-0" height="500px">
+            <div class="row d-flex align-items-baseline d-inline-flex pt-5">
+            </div>
+            <h2><%=user.name %></h2>
+            <p class="pl-3">id: <%=user.id %></p>
+
+            <p class=""><%=user.email %></p>
+            <p class=""><%=user.phone %></p>
+    
+
+            <div class="m-0 p-0">
+                <!-- Botão que leva até a rota de edição para realizar o PUT -->
+                <a href="/users/<%= user.id %>/editar""><button class="btn btn-primary col-3" id="">Editar</button></a>
+                <!-- Botão que aciona a rota DELETE -->
+                <button class="btn btn-danger col-3" id="deleteUser">Deletar conta</button>
+            </div>     
+
+            <script>
+                const deleteUser = document.getElementById('deleteUser');
+                deleteUser.addEventListener('click', () => {
+                    const confirmDelete = confirm('Você está excluíndo a sua conta.');
+    
+                    if (confirmDelete) {
+                        fetch('/users/<%=user.id%>', {
+                            method: 'DELETE'
+                        })
+                        .then(response => {
+                            window.location.href = '/';
+                        })
+                        .catch(error => {
+                            console.error('Erro ao excluir user: ', error);
+                        });
+                    }
+                });
+            </script>
+        </div>
+
+    </div>

@@ -1,0 +1,23 @@
+<%- include('partials/head')%>
+
+    <%- include('partials/navbar')%>
+    
+    
+    <div class="container" >
+
+        <h1>Criar conta</h1>
+    
+        <form method="POST" action="/sign-in">
+            
+            <div class="col-6 form-group">
+                <label for="email">E-mail</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="exemple@exemple.com">
+            </div>    
+            <div class="col-5 form-group">
+                <label for="password">Senha</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>

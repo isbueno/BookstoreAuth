@@ -46,9 +46,36 @@ const Livro = sequelize.define("livro", {
 }, {freezeTableName: true
 });
 
+
+// Model User
+const User = sequelize.define("user", {
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    birth: {
+        type: DataTypes.STRING,
+    },
+    email: {
+        type: DataTypes.STRING,
+    },
+    password: {
+        type: DataTypes.STRING,
+    },
+    phone: {
+        type: DataTypes.STRING,
+    },
+    books: {
+        type: DataTypes.STRING,
+    },
+
+}, {freezeTableName: true
+});
+
+
 // Verificando a criação da tabela
 sequelize.sync().then(() => {
-    console.log('\nTabela Livros criada.');
+    console.log('\nTabela criada.');
 
  }).catch((error) => {
     console.error('\nErro: Não foi possível criar a tabela. ', error);
@@ -57,5 +84,6 @@ sequelize.sync().then(() => {
 
 module.exports = {
     sequelize,
-    Livro: Livro // Exporte o modelo Livro
+    Livro: Livro, // Exporte o modelo Livro
+    User: User // Exporte o modelo User
 };

@@ -14,11 +14,16 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
 
 // Importando as configurações do banco de dados
-const { sequelize, Livro } = require('./book.model')
+const { sequelize, Livro } = require('./models')
 
 // Importando routes de livros
 const livrosRoutes = require('./routes/books')
 app.use(livrosRoutes);
+
+
+// Importando routes de users
+const usersRoutes = require('./routes/users')
+app.use(usersRoutes);
 
 
 // Definindo home
