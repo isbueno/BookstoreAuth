@@ -4,7 +4,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = new Sequelize(
     'ecommerce_db', // certifique-se de criar esse banco de dados na sua máquina
     'root', 
-    'us3r#p4S5', // adicione sua senha
+    '', // adicione sua senha
     {
         host: 'localhost',
         dialect: 'mysql'
