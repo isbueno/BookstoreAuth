@@ -7,12 +7,12 @@ const router = express.Router()
 const { sequelize, User } = require('../models')
 
 
-// Criando um novo livro
+// Criando um novo user
 router.get('/sign-up', (req, res) => {
     res.render('users');     
 });
 
-// Método POST para cadastrar livros na rota '/cadastrar'
+// Método POST para cadastrar users
 router.post('/sign-up', (req, res) => {
     const { name, birth, email, password, phone} = req.body;
 
